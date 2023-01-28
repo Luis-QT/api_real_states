@@ -1,0 +1,16 @@
+fastapi
+uvicorn
+sqlalchemy
+pydantic
+pydantic[dotenv]
+psycopg2
+passlib
+bcrypt
+pyjwt
+Faker
+pytz
+tzlocal
+pylint
+requests
+python-multipart
+sentry-sdk[fastapi]

@@ -1,0 +1,30 @@
+version: '3.7'
+
+services:
+  app_template:
+    container_name: app_template
+    build: .
+    depends_on:
+      - db_template
+    volumes:
+      - ./:/app
+    ports:
+      - 8080:8080
+    env_file:
+      - ./.env
+
+  db_template:
+    container_name: db_template
+    restart: always
+    image: postgres:12.0-alpine
+    env_file:
+        - ./.env
+    volumes:
+      - db_template:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    command: ["postgres", "-c", "log_statement=all"]
+
+volumes:
+    db_template:
+      name: db_template
